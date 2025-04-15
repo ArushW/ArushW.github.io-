@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+:root {
+    --primary: #ff71ce;
+    --secondary: #01cdfe;
+    --accent: #05ffa1;
+    --background: #0d0221;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background: var(--background);
+    color: white;
+    overflow-x: hidden;
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(13, 2, 33, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.year-progress {
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.progress-text {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+}
+
+.progress-container {
+    width: 100%;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff7f00,
+        #ffff00,
+        #00ff00,
+        #0000ff,
+        #4b0082,
+        #8f00ff
+    );
+    background-size: 200% 100%;
+    animation: rainbow-animation 5s linear infinite;
+    transition: width 0.5s ease;
+}
+
+@keyframes rainbow-animation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+.progress-percentage {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: var(--accent);
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin: 4rem 0;
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--primary);
+    text-shadow: 
+        0 0 10px var(--primary),
+        0 0 20px var(--secondary);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 
+            0 0 10px var(--primary),
+            0 0 20px var(--secondary);
+    }
+    to {
+        text-shadow: 
+            0 0 20px var(--primary),
+            0 0 30px var(--secondary),
+            0 0 40px var(--accent);
+    }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-top: 1rem;
+}
+
+.portfolio-section {
+    margin-top: 4rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+} 
